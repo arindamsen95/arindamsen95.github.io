@@ -72,30 +72,54 @@
 
         /* Hero */
 
-        .hero {
-            padding: 120px 0 100px;
-        }
+       .hero {
+    padding: 120px 0 100px;
+}
 
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 80px);
-            line-height: 1.05;
-            letter-spacing: -3px;
-            color: white;
-            margin-bottom: 20px;
-        }
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
 
-        .hero h2 {
-            font-size: 24px;
-            font-weight: 400;
-            color: #60a5fa;
-            margin-bottom: 24px;
-        }
+.hero-text {
+    flex: 1;
+}
 
-        .hero p {
-            max-width: 650px;
-            font-size: 18px;
-            color: #94a3b8;
-        }
+.hero h1 {
+    font-size: clamp(48px, 8vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #60a5fa;
+    margin-bottom: 24px;
+}
+
+.hero p {
+    max-width: 650px;
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+.hero-photo {
+    flex-shrink: 0;
+}
+
+.hero-photo img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #1e3a5f;
+}
+
 
         .buttons {
             display: flex;
@@ -193,6 +217,25 @@
 
         @media (max-width: 650px) {
 
+            .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+}
+
+.hero p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-photo img {
+    width: 180px;
+    height: 180px;
+}
+
+.buttons {
+    justify-content: center;
+}
+
             .nav-links {
                 display: none;
             }
@@ -235,17 +278,50 @@
 
         <!-- Hero -->
 
-        <header class="hero">
-            <div class="container">
+<header class="hero">
+    <div class="container hero-content">
 
-                <h1>Arindam Sen</h1>
+        <div class="hero-text">
 
-                <h2>Postdoctoral Research Fellow</h2>
+            <h1>Arindam Sen</h1>
 
-                <p>
-                    Experimental physicist working in particle physics,
-                    detector development, and experimental instrumentation.
-                </p>
+            <h2>Postdoctoral Research Fellow</h2>
+
+            <p>
+                Experimental physicist working in particle physics,
+                detector development, and experimental instrumentation.
+            </p>
+
+            <div class="buttons">
+
+                <a class="button primary"
+                   href="YOUR_GOOGLE_SCHOLAR_URL"
+                   target="_blank">
+                    Google Scholar
+                </a>
+
+                <a class="button"
+                   href="YOUR_GITHUB_URL"
+                   target="_blank">
+                    GitHub
+                </a>
+
+                <a class="button"
+                   href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-photo">
+            <img src="ph.JPG" alt="Arindam Sen">
+        </div>
+
+    </div>
+</header>
+
 
                 <div class="buttons">
                     <a class="button primary"
