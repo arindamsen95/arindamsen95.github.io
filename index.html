@@ -3,666 +3,554 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arindam Sen — Personal Portfolio</title>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Arindam Sen - Postdoctoral Researcher</title>
     <style>
-        :root {
-            --bg-dark: #12141d;
-            --bg-card: #1c1e29;
-            --bg-card-hover: #252836;
-            --accent-amber: #f59e0b;
-            --accent-amber-hover: #d97706;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --radius-lg: 20px;
-            --radius-md: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: var(--text-dark);
+            background: #ffffff;
             overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(44, 62, 80, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.8s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background: #ffffff;
+            color: #667eea;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 0 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: #ffffff;
+            color: #667eea;
+            transform: translateY(-5px);
         }
 
         /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 2rem;
         }
 
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(18, 20, 29, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
+        /* Sections */
+        section {
+            padding: 5rem 0;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        #about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
-            height: 80px;
         }
 
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 800;
-            font-size: 1.25rem;
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
 
-        .brand-icon {
-            width: 38px;
-            height: 38px;
-            background: var(--accent-amber);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-dark);
-            font-weight: 800;
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
+        .skill-tag {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Research Section */
+        #research {
+            background: #ffffff;
+        }
+
+        .research-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-color);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .research-card .year {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Publications Section */
+        #publications {
+            background: #f8f9fa;
+        }
+
+        .pub-list {
             list-style: none;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
+        .pub-item {
+            background: #ffffff;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-amber);
+        .pub-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
         }
 
-        /* Hero Section */
-        .hero {
-            padding-top: 150px;
-            padding-bottom: 80px;
+        .pub-item strong {
+            color: var(--primary-color);
+        }
+
+        .pub-item em {
+            color: var(--text-light);
+        }
+
+        /* Education Section */
+        .education-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            padding-left: 3rem;
             position: relative;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-image-bg {
+        .timeline-item::before {
+            content: '';
             position: absolute;
-            width: 85%;
-            height: 85%;
-            background: var(--accent-amber);
-            border-radius: var(--radius-lg);
-            top: 10%;
-            left: 5%;
-            z-index: 1;
-            transform: rotate(-3deg);
-            transition: var(--transition);
-        }
-
-        .hero-image-wrapper:hover .hero-image-bg {
-            transform: rotate(0deg) scale(1.02);
-        }
-
-        .hero-img {
-            position: relative;
-            z-index: 2;
-            width: 85%;
-            max-width: 380px;
-            border-radius: var(--radius-lg);
-            object-fit: cover;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            filter: grayscale(10%);
-            transition: var(--transition);
-        }
-
-        .hero-image-wrapper:hover .hero-img {
-            filter: grayscale(0%);
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-        }
-
-        .hero-content h1 span {
-            color: var(--accent-amber);
-        }
-
-        .intro-tag {
-            display: inline-block;
-            font-weight: 600;
-            color: var(--accent-amber);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .hero-content p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 32px;
-            max-width: 500px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--accent-amber);
-            color: var(--bg-dark);
-            padding: 14px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-amber-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-social-icon {
-            width: 46px;
-            height: 46px;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--secondary-color);
             border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: var(--transition);
+            border: 4px solid #ffffff;
+            box-shadow: 0 0 0 4px var(--secondary-color);
         }
 
-        .btn-social-icon:hover {
-            background: var(--accent-amber);
-            color: var(--bg-dark);
-            border-color: var(--accent-amber);
-            transform: translateY(-2px);
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 30px;
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-color);
         }
 
-        /* Stats Bar */
-        .stats-section {
-            padding: 40px 0;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 80px;
+        .timeline-item:last-child::after {
+            display: none;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            text-align: center;
+        .timeline-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
         }
 
-        .stat-item h3 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--accent-amber);
-            margin-bottom: 4px;
-        }
-
-        .stat-item p {
-            color: var(--text-muted);
+        .timeline-item .year {
+            color: var(--text-light);
             font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        /* Highlight Cards Section (Services/Focus Areas in Carlos design) */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin-bottom: 80px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 36px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card.highlight {
-            background: var(--accent-amber);
-            color: var(--bg-dark);
-        }
-
-        .feature-card.highlight * {
-            color: var(--bg-dark) !important;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-amber);
-        }
-
-        .card-icon {
-            font-size: 1.8rem;
-            margin-bottom: 24px;
-            color: var(--accent-amber);
-        }
-
-        .feature-card.highlight .card-icon {
-            color: var(--bg-dark);
-        }
-
-        .card-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .card-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Section Layouts */
-        .section-header {
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        /* Timeline Items (Experience / Education) */
-        .timeline-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 80px;
-        }
-
-        .timeline-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 28px;
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 24px;
-            transition: var(--transition);
-        }
-
-        .timeline-card:hover {
-            border-color: var(--accent-amber);
-            background: var(--bg-card-hover);
-        }
-
-        .timeline-period {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--accent-amber);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .timeline-details h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .timeline-details h5 {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        .timeline-details p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Publications List */
-        .pub-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 80px;
-        }
-
-        .pub-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            transition: var(--transition);
-        }
-
-        .pub-card:hover {
-            border-color: var(--accent-amber);
-            transform: translateX(4px);
-        }
-
-        .pub-info h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .pub-info p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        .pub-journal {
-            display: inline-block;
-            margin-top: 6px;
-            font-size: 0.82rem;
-            color: var(--accent-amber);
-            font-weight: 600;
-        }
-
-        /* Footer / Contact Banner */
-        .contact-banner {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 60px 40px;
+        /* Contact Section */
+        #contact {
+            background: var(--primary-color);
+            color: #ffffff;
             text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .contact-banner h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 16px;
+        #contact h2,
+        #contact h2::after {
+            color: #ffffff;
         }
 
-        .contact-banner p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 32px auto;
-            font-size: 1.05rem;
+        #contact h2::after {
+            background: var(--secondary-color);
         }
 
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #ffffff;
+        }
+
+        /* Footer */
         footer {
-            border-top: 1px solid var(--border-color);
-            padding: 30px 0;
+            background: #1a252f;
+            color: #ffffff;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            padding: 2rem;
+            font-size: 0.9rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content p {
-                margin: 0 auto 32px auto;
-            }
-
-            .hero-actions {
-                justify-content: center;
-            }
-
-            .timeline-card {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            nav ul {
                 display: none;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .stats-grid {
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="brand-logo">
-                    <div class="brand-icon">A</div>
-                    <span>Arindam.</span>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#expertise">Expertise</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">AS</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="about">
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="ph.JPG" alt="Arindam Sen" class="hero-image">
+            <h1>Arindam Sen</h1>
+            <p>Postdoctoral Researcher</p>
+            <p class="hero-subtitle">Experimental High Energy Physics | Radiation Detector Development</p>
+            <div>
+                <a href="#about" class="btn btn-primary">Learn More</a>
+                <a href="CV_arindam.pdf" class="btn btn-secondary">Download CV</a>
+            </div>
+            <div class="social-links">
+                <a href="https://scholar.google.com/citations?user=gWzujTwAAAAJ&hl=en" title="Google Scholar">📊</a>
+                <a href="https://github.com/arindamsen95" title="GitHub">🔗</a>
+                <a href="https://orcid.org/0000-0002-4151-2761" title="ORCID">🆔</a>
+                <a href="mailto:arindamsen95@gmail.com" title="Email">✉️</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
         <div class="container">
-            <div class="hero-grid">
-                <div class="hero-image-wrapper">
-                    <div class="hero-image-bg"></div>
-                    <img src="ph.JPG" alt="Arindam Sen" class="hero-img">
-                </div>
-                <div class="hero-content">
-                    <span class="intro-tag">— Introduction</span>
-                    <h1>Arindam <span>Sen.</span></h1>
-                    <p>Postdoctoral Researcher in Experimental High Energy Physics. Specializing in detector development, particle physics simulations, and advanced DAQ systems.</p>
-                    <div class="hero-actions">
-                        <a href="#contact" class="btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
-                        <div class="social-buttons">
-                            <a href="https://scholar.google.com/citations?user=gWzujTwAAAAJ&hl=en" target="_blank" class="btn-social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="https://github.com/arindamsen95" target="_blank" class="btn-social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://orcid.org/0000-0002-4151-2761" target="_blank" class="btn-social-icon" title="ORCID"><i class="fab fa-orcid"></i></a>
-                            <a href="mailto:arindamsen95@gmail.com" class="btn-social-icon" title="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Postdoctoral Researcher</h3>
+                    <p>I am a Postdoctoral Researcher at <strong>Jagiellonian University, Poland</strong>, working on inertial sensing with Positronium atoms and gravitational effects on matter-antimatter systems.</p>
+                    <p>With a Ph.D. in Experimental High Energy Physics from the University of Calcutta, I have extensive experience in:</p>
+                    <ul style="list-style: none; margin: 1rem 0;">
+                        <li>✓ Resistive Plate Chamber (RPC) development</li>
+                        <li>✓ Data Acquisition (DAQ) systems</li>
+                        <li>✓ Radiation detector characterization</li>
+                        <li>✓ Physics simulations and data analysis</li>
+                        <li>✓ Cosmic ray flux monitoring</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <strong>Technical Skills:</strong><br>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">FORTRAN90</span>
+                        <span class="skill-tag">ROOT (CERN)</span>
+                        <span class="skill-tag">ORIGIN</span>
+                        <span class="skill-tag">Geant4</span>
+                        <span class="skill-tag">Data Analysis</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Bar -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>10+</h3>
-                    <p>Years in Physics Research</p>
-                </div>
-                <div class="stat-item">
-                    <h3>15+</h3>
-                    <p>Publications & Proceedings</p>
-                </div>
-                <div class="stat-item">
-                    <h3>8+</h3>
-                    <p>International Grants & Awards</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expertise Cards -->
-    <section id="expertise" class="container">
-        <div class="section-header">
-            <span class="intro-tag">— Focus Areas</span>
-            <h2>Core Competencies</h2>
-        </div>
-        <div class="cards-grid">
-            <div class="feature-card highlight">
-                <i class="fas fa-atom card-icon"></i>
-                <h3 class="card-title">Particle Detectors</h3>
-                <p class="card-desc">R&D of low-resistive Bakelite RPCs and GEM detectors for high-rate heavy-ion and particle physics experiments.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-microchip card-icon"></i>
-                <h3 class="card-title">DAQ Systems</h3>
-                <p class="card-desc">Experience with modern VXS-based electronic modules, test stands, and monitoring systems for Hall A & C experiments.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-code card-icon"></i>
-                <h3 class="card-title">Analysis & Simulation</h3>
-                <p class="card-desc">High-performance computational analysis and simulations using C++, ROOT (CERN), FORTRAN90, and Geant4.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="container">
-        <div class="section-header">
-            <span class="intro-tag">— Track Record</span>
-            <h2>Postdoctoral Experience</h2>
-        </div>
-        <div class="timeline-list">
-            <div class="timeline-card">
-                <div class="timeline-period">Apr 2026 – Present</div>
-                <div class="timeline-details">
-                    <h4>Jagiellonian University</h4>
-                    <h5>Postdoctoral Researcher — Kraków, Poland</h5>
-                    <p>Inertial sensing on Positronium atoms: towards measuring the gravitational effects on matter-antimatter systems at the Department of Experimental Particle Physics.</p>
-                </div>
-            </div>
-            <div class="timeline-card">
-                <div class="timeline-period">Dec 2023 – Nov 2025</div>
-                <div class="timeline-details">
-                    <h4>Jefferson Lab / Ohio University</h4>
-                    <h5>Postdoctoral Researcher — USA</h5>
-                    <p>Development of Data Acquisition (DAQ) systems for the MOLLER experiment, including testing, asymmetry monitoring, and VXS electronic module integration.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Selected Publications Section -->
-    <section id="publications" class="container">
-        <div class="section-header">
-            <span class="intro-tag">— Research Output</span>
-            <h2>Selected Publications</h2>
-        </div>
-        <div class="pub-list">
-            <div class="pub-card">
-                <div class="pub-info">
-                    <h4>Performance study of a bakelite RPC prototype built by new technique of linseed oil coating</h4>
-                    <p>A. Sen, S. Mandal, S. Chatterjee, S. Gope, S. Das, and S. Biswas</p>
-                    <span class="pub-journal">2025 JINST 20 T03007</span>
-                </div>
-                <a href="https://doi.org/10.1088/1748-0221/20/03/T03007" target="_blank" class="btn-social-icon"><i class="fas fa-external-link-alt"></i></a>
-            </div>
-            <div class="pub-card">
-                <div class="pub-info">
-                    <h4>Charging-up effect and uniformity study of a single mask triple GEM detector</h4>
-                    <p>S. Chatterjee, A. Sen, S. Das, S. Biswas</p>
-                    <span class="pub-journal">Nuclear Inst. and Methods in Physics Research, A 1049 (2023)</span>
-                </div>
-                <a href="https://doi.org/10.1016/j.nima.2023.168110" target="_blank" class="btn-social-icon"><i class="fas fa-external-link-alt"></i></a>
-            </div>
-            <div class="pub-card">
-                <div class="pub-info">
-                    <h4>A new technique of linseed oil coating in bakelite RPC and the first test results</h4>
-                    <p>A. Sen, S. Chatterjee, S. Das, S. K. Ghosh, S. Biswas</p>
-                    <span class="pub-journal">Nuclear Inst. and Methods in Physics Research, A 1024 (2022)</span>
-                </div>
-                <a href="https://doi.org/10.1016/j.nima.2021.166095" target="_blank" class="btn-social-icon"><i class="fas fa-external-link-alt"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Banner -->
-    <section id="contact" class="container">
-        <div class="contact-banner">
-            <h2>Interested in Collaboration?</h2>
-            <p>Feel free to reach out for research discussions, academic collaborations, or technical inquiries in High Energy Physics.</p>
-            <a href="mailto:arindamsen95@gmail.com" class="btn-primary">Send Email <i class="fas fa-envelope"></i></a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Arindam Sen. Styled after Carlos Design Inspiration.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+                <div>
+                    <h3>Contact Information</h3>
+                    <p><strong>Email:</strong></p>
+                    <p><a href="mailto:arindamsen95@gmail.com">ar
