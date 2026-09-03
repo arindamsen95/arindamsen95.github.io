@@ -3,730 +3,666 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arindam Sen — Postdoctoral Researcher</title>
+    <title>Arindam Sen — Personal Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --bg-main: #181920;
-            --bg-card: #20222a;
-            --bg-card-hover: #262832;
-            --accent-yellow: #ffb400;
-            --accent-yellow-glow: rgba(255, 180, 0, 0.15);
-            --text-white: #ffffff;
-            --text-muted: #8e92a4;
-            --text-dim: #5c6074;
-            --border-color: #2b2d3a;
-            --font-family: 'Plus Jakarta Sans', sans-serif;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-dark: #12141d;
+            --bg-card: #1c1e29;
+            --bg-card-hover: #252836;
+            --accent-amber: #f59e0b;
+            --accent-amber-hover: #d97706;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: var(--font-family);
         }
 
         body {
-            background-color: var(--bg-main);
-            color: var(--text-white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
+        /* Container */
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 24px;
         }
 
-        /* --- Animations --- */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 0.99;
-                transform: translateY(0);
-            }
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(18, 20, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        @keyframes floatImage {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .animate {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-
-        /* --- Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 0;
+            height: 80px;
         }
 
-        .logo {
+        .brand-logo {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-white);
             text-decoration: none;
-            letter-spacing: -0.5px;
+            color: var(--text-main);
+            font-weight: 800;
+            font-size: 1.25rem;
         }
 
-        .logo-icon {
+        .brand-icon {
             width: 38px;
             height: 38px;
-            background: var(--accent-yellow);
-            border-radius: 50% 50% 50% 0;
+            background: var(--accent-amber);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--bg-main);
-            font-size: 1.1rem;
+            color: var(--bg-dark);
+            font-weight: 800;
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 32px;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.95rem;
+            color: var(--text-muted);
             font-weight: 500;
+            font-size: 0.95rem;
             transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-amber);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
             position: relative;
         }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--text-white);
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-yellow);
-            border-radius: 2px;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
+        .hero-grid {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
-            padding: 40px 0 100px;
         }
 
-        .hero-left {
+        .hero-image-wrapper {
             position: relative;
-        }
-
-        .hero-title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 24px;
-        }
-
-        .hero-title span {
-            color: var(--accent-yellow);
-        }
-
-        .hero-subtitle {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            display: block;
-            font-weight: 600;
-        }
-
-        .hero-bio-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 20px;
-        }
-
-        .hero-bio {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 35px;
-            max-width: 500px;
-        }
-
-        .social-bar {
             display: flex;
-            gap: 16px;
-            margin-top: 30px;
-        }
-
-        .social-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-white);
-            display: flex;
-            align-items: center;
             justify-content: center;
-            text-decoration: none;
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            background: var(--accent-amber);
+            border-radius: var(--radius-lg);
+            top: 10%;
+            left: 5%;
+            z-index: 1;
+            transform: rotate(-3deg);
             transition: var(--transition);
         }
 
-        .social-btn:hover {
-            background: var(--accent-yellow);
-            color: var(--bg-main);
-            border-color: var(--accent-yellow);
-            transform: translateY(-4px);
+        .hero-image-wrapper:hover .hero-image-bg {
+            transform: rotate(0deg) scale(1.02);
         }
 
-        .hero-right {
+        .hero-img {
             position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .image-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 420px;
-            border-radius: 30px;
-            overflow: hidden;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            animation: floatImage 6s ease-in-out infinite;
-        }
-
-        .image-wrapper img {
-            width: 100%;
-            height: 480px;
+            z-index: 2;
+            width: 85%;
+            max-width: 380px;
+            border-radius: var(--radius-lg);
             object-fit: cover;
-            display: block;
-            filter: grayscale(20%) contrast(105%);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            filter: grayscale(10%);
             transition: var(--transition);
         }
 
-        .image-wrapper:hover img {
+        .hero-image-wrapper:hover .hero-img {
             filter: grayscale(0%);
-            transform: scale(1.03);
         }
 
-        /* --- Stats Banner --- */
-        .stats-banner {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 100px;
-        }
-
-        .stat-item {
-            text-align: left;
-            padding: 0 20px;
-            border-right: 1px solid var(--border-color);
-        }
-
-        .stat-item:last-child {
-            border-right: none;
-        }
-
-        .stat-number {
-            font-size: 3rem;
+        .hero-content h1 {
+            font-size: 3.5rem;
             font-weight: 800;
-            color: var(--accent-yellow);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* --- Section Styling --- */
-        .section-header {
-            margin-bottom: 50px;
-        }
-
-        .section-tag {
-            color: var(--accent-yellow);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
             letter-spacing: -1px;
         }
 
-        /* --- Expertise Cards (3-Column Layout like Mendoza theme) --- */
-        .cards-grid {
+        .hero-content h1 span {
+            color: var(--accent-amber);
+        }
+
+        .intro-tag {
+            display: inline-block;
+            font-weight: 600;
+            color: var(--accent-amber);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-amber);
+            color: var(--bg-dark);
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-amber-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-social-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-social-icon:hover {
+            background: var(--accent-amber);
+            color: var(--bg-dark);
+            border-color: var(--accent-amber);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats-section {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 80px;
+        }
+
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-bottom: 100px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent-amber);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Highlight Cards Section (Services/Focus Areas in Carlos design) */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 80px;
         }
 
         .feature-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            padding: 36px;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 280px;
         }
 
         .feature-card.highlight {
-            background: var(--accent-yellow);
-            border-color: var(--accent-yellow);
-            color: var(--bg-main);
+            background: var(--accent-amber);
+            color: var(--bg-dark);
         }
 
-        .feature-card.highlight .card-icon,
-        .feature-card.highlight .card-title,
-        .feature-card.highlight .card-count {
-            color: var(--bg-main);
+        .feature-card.highlight * {
+            color: var(--bg-dark) !important;
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-yellow);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: translateY(-6px);
+            border-color: var(--accent-amber);
         }
 
         .card-icon {
-            font-size: 2rem;
-            color: var(--accent-yellow);
+            font-size: 1.8rem;
             margin-bottom: 24px;
+            color: var(--accent-amber);
+        }
+
+        .feature-card.highlight .card-icon {
+            color: var(--bg-dark);
         }
 
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            line-height: 1.2;
             margin-bottom: 12px;
         }
 
-        .card-count {
+        .card-desc {
             color: var(--text-muted);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        /* --- Timeline / Experience --- */
-        .timeline-section {
-            margin-bottom: 100px;
+        /* Section Layouts */
+        .section-header {
+            margin-bottom: 40px;
         }
 
-        .timeline-container {
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* Timeline Items (Experience / Education) */
+        .timeline-list {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            margin-bottom: 80px;
         }
 
         .timeline-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 30px 40px;
+            border-radius: var(--radius-md);
+            padding: 28px;
             display: grid;
             grid-template-columns: 200px 1fr;
-            gap: 40px;
-            align-items: center;
+            gap: 24px;
             transition: var(--transition);
         }
 
         .timeline-card:hover {
-            border-color: var(--accent-yellow);
-            transform: translateX(10px);
+            border-color: var(--accent-amber);
+            background: var(--bg-card-hover);
         }
 
         .timeline-period {
-            color: var(--accent-yellow);
+            font-size: 0.85rem;
             font-weight: 700;
-            font-size: 0.95rem;
+            color: var(--accent-amber);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .timeline-role {
-            font-size: 1.3rem;
+        .timeline-details h4 {
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 4px;
         }
 
-        .timeline-org {
-            color: var(--text-muted);
+        .timeline-details h5 {
             font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
             margin-bottom: 12px;
         }
 
-        .timeline-desc {
-            color: var(--text-dim);
+        .timeline-details p {
+            color: var(--text-muted);
             font-size: 0.95rem;
         }
 
-        /* --- Publications List --- */
+        /* Publications List */
         .pub-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            margin-bottom: 100px;
+            margin-bottom: 80px;
         }
 
-        .pub-item {
+        .pub-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px 30px;
+            border-radius: var(--radius-md);
+            padding: 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            text-decoration: none;
-            color: inherit;
+            gap: 20px;
             transition: var(--transition);
         }
 
-        .pub-item:hover {
-            border-color: var(--accent-yellow);
-            background: var(--bg-card-hover);
+        .pub-card:hover {
+            border-color: var(--accent-amber);
+            transform: translateX(4px);
         }
 
-        .pub-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .pub-info h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
             margin-bottom: 6px;
-            color: var(--text-white);
         }
 
-        .pub-authors {
-            font-size: 0.85rem;
+        .pub-info p {
+            font-size: 0.88rem;
             color: var(--text-muted);
         }
 
         .pub-journal {
-            font-size: 0.85rem;
-            color: var(--accent-yellow);
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 0.82rem;
+            color: var(--accent-amber);
             font-weight: 600;
-            margin-top: 4px;
         }
 
-        .pub-arrow {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--bg-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-white);
-            transition: var(--transition);
-        }
-
-        .pub-item:hover .pub-arrow {
-            background: var(--accent-yellow);
-            color: var(--bg-main);
-            transform: translateX(5px);
-        }
-
-        /* --- Footer / Contact CTA --- */
-        .footer-cta {
-            background: linear-gradient(135deg, var(--bg-card) 0%, #15161d 100%);
+        /* Footer / Contact Banner */
+        .contact-banner {
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 30px;
-            padding: 80px 60px;
+            border-radius: var(--radius-lg);
+            padding: 60px 40px;
             text-align: center;
             margin-bottom: 60px;
             position: relative;
             overflow: hidden;
         }
 
-        .footer-cta h2 {
-            font-size: 3rem;
+        .contact-banner h2 {
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+            margin-bottom: 16px;
         }
 
-        .footer-cta p {
+        .contact-banner p {
             color: var(--text-muted);
             max-width: 600px;
-            margin: 0 auto 40px;
-            font-size: 1.1rem;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--accent-yellow);
-            color: var(--bg-main);
-            padding: 18px 36px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px var(--accent-yellow-glow);
-            background: #ffa800;
+            margin: 0 auto 32px auto;
+            font-size: 1.05rem;
         }
 
         footer {
             border-top: 1px solid var(--border-color);
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
-            color: var(--text-dim);
-            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero {
+        @media (max-width: 992px) {
+            .hero-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            .hero-bio {
-                margin: 0 auto 35px;
+
+            .hero-content p {
+                margin: 0 auto 32px auto;
             }
-            .social-bar {
+
+            .hero-actions {
                 justify-content: center;
             }
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-            .stats-banner {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-            .stat-item {
-                border-right: none;
-            }
+
             .timeline-card {
                 grid-template-columns: 1fr;
-                gap: 10px;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Navigation -->
-        <nav>
-            <a href="#" class="logo">
-                <div class="logo-icon"><i class="fas fa-atom"></i></div>
-                Arindam.
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#publications">Publications</a></li>
-            </ul>
-        </nav>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="brand-logo">
+                    <div class="brand-icon">A</div>
+                    <span>Arindam.</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <!-- Hero Section -->
-        <section class="hero" id="about">
-            <div class="hero-left animate delay-1">
-                <span class="hero-subtitle">— Introduction</span>
-                <h1 class="hero-title">Arindam<br>Sen<span>.</span></h1>
-                <div class="hero-bio-title">Postdoctoral Researcher in Experimental Particle Physics</div>
-                <p class="hero-bio">
-                    Specializing in detector R&D, data acquisition systems, and high-energy physics. Currently investigating gravitational effects on matter-antimatter systems at Jagiellonian University.
-                </p>
-                <div class="social-bar">
-                    <a href="mailto:arindam.sen@uj.edu.pl" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/arindamsen95" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://scholar.google.com/citations?user=gWzujTwAAAAJ&hl=en" target="_blank" class="social-btn" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="https://orcid.org/0000-0002-4151-2761" target="_blank" class="social-btn" title="ORCID"><i class="fab fa-orcid"></i></a>
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-bg"></div>
+                    <img src="ph.JPG" alt="Arindam Sen" class="hero-img">
                 </div>
-            </div>
-            <div class="hero-right animate delay-2">
-                <div class="image-wrapper">
-                    <img src="ph.JPG" alt="Arindam Sen">
+                <div class="hero-content">
+                    <span class="intro-tag">— Introduction</span>
+                    <h1>Arindam <span>Sen.</span></h1>
+                    <p>Postdoctoral Researcher in Experimental High Energy Physics. Specializing in detector development, particle physics simulations, and advanced DAQ systems.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+                        <div class="social-buttons">
+                            <a href="https://scholar.google.com/citations?user=gWzujTwAAAAJ&hl=en" target="_blank" class="btn-social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                            <a href="https://github.com/arindamsen95" target="_blank" class="btn-social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://orcid.org/0000-0002-4151-2761" target="_blank" class="btn-social-icon" title="ORCID"><i class="fab fa-orcid"></i></a>
+                            <a href="mailto:arindam.sen@uj.edu.pl" class="btn-social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Stats Counter Banner -->
-        <div class="stats-banner animate delay-3">
-            <div class="stat-item">
-                <div class="stat-number">8+</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">25+</div>
-                <div class="stat-label">Publications & Notes</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">4+</div>
-                <div class="stat-label">Global Collaborations</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">08</div>
-                <div class="stat-label">Awards & Grants</div>
             </div>
         </div>
+    </section>
 
-        <!-- Expertise Cards (Carlos Mendoza Style Grid) -->
-        <section id="expertise">
-            <div class="section-header">
-                <span class="section-tag">— Core Domains</span>
-                <h2 class="section-title">Areas of Research</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="feature-card highlight animate delay-1">
-                    <div>
-                        <i class="fas fa-microchip card-icon"></i>
-                        <div class="card-title">Detector R&D</div>
-                    </div>
-                    <div class="card-count">Bakelite RPC & GEM Detectors</div>
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Years in Physics Research</p>
                 </div>
-                <div class="feature-card animate delay-2">
-                    <div>
-                        <i class="fas fa-server card-icon"></i>
-                        <div class="card-title">DAQ Systems</div>
-                    </div>
-                    <div class="card-count">VXS Hardware & Readout</div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Publications & Proceedings</p>
                 </div>
-                <div class="feature-card animate delay-3">
-                    <div>
-                        <i class="fas fa-code card-icon"></i>
-                        <div class="card-title">Data Analysis</div>
-                    </div>
-                    <div class="card-count">ROOT (CERN) & C++</div>
+                <div class="stat-item">
+                    <h3>8+</h3>
+                    <p>International Grants & Awards</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Timeline -->
-        <section id="experience" class="timeline-section">
-            <div class="section-header">
-                <span class="section-tag">— Career Track</span>
-                <h2 class="section-title">Postdoctoral & Academic History</h2>
+    <!-- Expertise Cards -->
+    <section id="expertise" class="container">
+        <div class="section-header">
+            <span class="intro-tag">— Focus Areas</span>
+            <h2>Core Competencies</h2>
+        </div>
+        <div class="cards-grid">
+            <div class="feature-card highlight">
+                <i class="fas fa-atom card-icon"></i>
+                <h3 class="card-title">Particle Detectors</h3>
+                <p class="card-desc">R&D of low-resistive Bakelite RPCs and GEM detectors for high-rate heavy-ion and particle physics experiments.</p>
             </div>
-            <div class="timeline-container">
-                <div class="timeline-card">
-                    <div class="timeline-period">Apr 2026 – Present</div>
-                    <div>
-                        <div class="timeline-role">Postdoctoral Researcher</div>
-                        <div class="timeline-org">Jagiellonian University, Kraków, Poland</div>
-                        <div class="timeline-desc">Inertial sensing on Positronium atoms to measure gravitational effects on matter-antimatter systems.</div>
-                    </div>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-period">Dec 2023 – Nov 2025</div>
-                    <div>
-                        <div class="timeline-role">Postdoctoral Researcher</div>
-                        <div class="timeline-org">Ohio University / Jefferson Lab, USA</div>
-                        <div class="timeline-desc">Development and integration of DAQ systems for the MOLLER experiment.</div>
-                    </div>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-period">2018 – 2023</div>
-                    <div>
-                        <div class="timeline-role">Ph.D. Research Fellow</div>
-                        <div class="timeline-org">Bose Institute / University of Calcutta, India</div>
-                        <div class="timeline-desc">Development of Resistive Plate Chambers (RPC) for the CBM experiment at FAIR.</div>
-                    </div>
-                </div>
+            <div class="feature-card">
+                <i class="fas fa-microchip card-icon"></i>
+                <h3 class="card-title">DAQ Systems</h3>
+                <p class="card-desc">Experience with modern VXS-based electronic modules, test stands, and monitoring systems for Hall A & C experiments.</p>
             </div>
-        </section>
+            <div class="feature-card">
+                <i class="fas fa-code card-icon"></i>
+                <h3 class="card-title">Analysis & Simulation</h3>
+                <p class="card-desc">High-performance computational analysis and simulations using C++, ROOT (CERN), FORTRAN90, and Geant4.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Selected Publications -->
-        <section id="publications">
-            <div class="section-header">
-                <span class="section-tag">— Academic Output</span>
-                <h2 class="section-title">Selected Publications</h2>
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <div class="section-header">
+            <span class="intro-tag">— Track Record</span>
+            <h2>Postdoctoral Experience</h2>
+        </div>
+        <div class="timeline-list">
+            <div class="timeline-card">
+                <div class="timeline-period">Apr 2026 – Present</div>
+                <div class="timeline-details">
+                    <h4>Jagiellonian University</h4>
+                    <h5>Postdoctoral Researcher — Kraków, Poland</h5>
+                    <p>Inertial sensing on Positronium atoms: towards measuring the gravitational effects on matter-antimatter systems at the Department of Experimental Particle Physics.</p>
+                </div>
             </div>
-            <div class="pub-list">
-                <a href="https://doi.org/10.1088/1748-0221/20/03/T03007" target="_blank" class="pub-item">
-                    <div>
-                        <div class="pub-title">Performance study of a bakelite RPC prototype built by new technique of linseed oil coating</div>
-                        <div class="pub-authors">A. Sen, S. Mandal, S. Chatterjee, S. Gope, S. Das, S. Biswas</div>
-                        <div class="pub-journal">JINST 20 T03007 (2025)</div>
-                    </div>
-                    <div class="pub-arrow"><i class="fas fa-arrow-right"></i></div>
-                </a>
-                <a href="https://doi.org/10.1016/j.nima.2023.168110" target="_blank" class="pub-item">
-                    <div>
-                        <div class="pub-title">Charging-up effect and uniformity study of a single mask triple GEM detector</div>
-                        <div class="pub-authors">S. Chatterjee, A. Sen, S. Das, S. Biswas</div>
-                        <div class="pub-journal">NIMA 1049 (2023) 168110</div>
-                    </div>
-                    <div class="pub-arrow"><i class="fas fa-arrow-right"></i></div>
-                </a>
-                <a href="https://doi.org/10.1016/j.nima.2021.166095" target="_blank" class="pub-item">
-                    <div>
-                        <div class="pub-title">A new technique of linseed oil coating in bakelite RPC and the first test results</div>
-                        <div class="pub-authors">A. Sen, S. Chatterjee, S. Das, S. K. Ghosh, S. Biswas</div>
-                        <div class="pub-journal">NIMA 1024 (2022) 166095</div>
-                    </div>
-                    <div class="pub-arrow"><i class="fas fa-arrow-right"></i></div>
-                </a>
+            <div class="timeline-card">
+                <div class="timeline-period">Dec 2023 – Nov 2025</div>
+                <div class="timeline-details">
+                    <h4>Jefferson Lab / Ohio University</h4>
+                    <h5>Postdoctoral Researcher — USA</h5>
+                    <p>Development of Data Acquisition (DAQ) systems for the MOLLER experiment, including testing, asymmetry monitoring, and VXS electronic module integration.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer CTA Section -->
-        <div class="footer-cta">
+    <!-- Selected Publications Section -->
+    <section id="publications" class="container">
+        <div class="section-header">
+            <span class="intro-tag">— Research Output</span>
+            <h2>Selected Publications</h2>
+        </div>
+        <div class="pub-list">
+            <div class="pub-card">
+                <div class="pub-info">
+                    <h4>Performance study of a bakelite RPC prototype built by new technique of linseed oil coating</h4>
+                    <p>A. Sen, S. Mandal, S. Chatterjee, S. Gope, S. Das, and S. Biswas</p>
+                    <span class="pub-journal">2025 JINST 20 T03007</span>
+                </div>
+                <a href="https://doi.org/10.1088/1748-0221/20/03/T03007" target="_blank" class="btn-social-icon"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="pub-card">
+                <div class="pub-info">
+                    <h4>Charging-up effect and uniformity study of a single mask triple GEM detector</h4>
+                    <p>S. Chatterjee, A. Sen, S. Das, S. Biswas</p>
+                    <span class="pub-journal">Nuclear Inst. and Methods in Physics Research, A 1049 (2023)</span>
+                </div>
+                <a href="https://doi.org/10.1016/j.nima.2023.168110" target="_blank" class="btn-social-icon"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="pub-card">
+                <div class="pub-info">
+                    <h4>A new technique of linseed oil coating in bakelite RPC and the first test results</h4>
+                    <p>A. Sen, S. Chatterjee, S. Das, S. K. Ghosh, S. Biswas</p>
+                    <span class="pub-journal">Nuclear Inst. and Methods in Physics Research, A 1024 (2022)</span>
+                </div>
+                <a href="https://doi.org/10.1016/j.nima.2021.166095" target="_blank" class="btn-social-icon"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Banner -->
+    <section id="contact" class="container">
+        <div class="contact-banner">
             <h2>Interested in Collaboration?</h2>
-            <p>Feel free to reach out for research discussions, scientific inquiries, or academic projects.</p>
-            <a href="mailto:arindam.sen@uj.edu.pl" class="btn-primary">
-                Get In Touch <i class="fas fa-paper-plane"></i>
-            </a>
+            <p>Feel free to reach out for research discussions, academic collaborations, or technical inquiries in High Energy Physics.</p>
+            <a href="mailto:arindam.sen@uj.edu.pl" class="btn-primary">Send Email <i class="fas fa-envelope"></i></a>
         </div>
+    </section>
 
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2026 Arindam Sen. Designed in Carlos Mendoza UI style.</p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Arindam Sen. Styled after Carlos Design Inspiration.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
